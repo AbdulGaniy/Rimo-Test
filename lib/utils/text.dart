@@ -1,0 +1,24 @@
+const kAppTitleText = 'Customer App';
+const kLoginText = 'Login';
+const kVerifyAccountText = 'Verify Your Account';
+const kVerifyText = 'Verify';
+const kRegisterText = 'Register';
+const kSignUpText =
+    'We could not find your account, kindly create\nanother account';
+const kForgetPasswordText = 'Forgot Password';
+const kForgetPasswordSubText = "Kindly put in your phone number.";
+const kCreateText = "Create";
+const kCreateAccountText = "Create Account";
+const kCreateAccountSubText = "Kindly create an account.";
+const kFirstNameText = "First Name";
+const kLastNameText = "Last Name";
+const kClickHereText = 'Click Here';
+const kPhoneNumberText = "Phone Number";
+const kPasswordText = "Password";
+const kResetPasswordText = "Reset Password";
+const kEnterPasswordText = "Enter Password";
+const kConfirmPasswordText = "Confirm Password";
+const kContinueText = "Continue";
+const kEnterOTPText = "Enter OTP";
+const kEnterOTPSubText = "Enter the OTP sent to your phone number.";
+const kResendOTPText = "Resend code in";
