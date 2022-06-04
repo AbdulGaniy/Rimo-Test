@@ -7,3 +7,5 @@ const kGift = "assets/pngs/gift.png";
 const kArrow = "assets/pngs/arrow.png";
 const kSplashImage = "assets/pngs/handova.png";
 const kSplashAnima = "assets/pngs/splash_animation.png";
+const kCall = "assets/pngs/whatsapp.png";
+const kText = "assets/pngs/text.png";
