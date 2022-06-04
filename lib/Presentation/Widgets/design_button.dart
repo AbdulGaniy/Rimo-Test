@@ -13,6 +13,7 @@ class DesignButton extends StatelessWidget {
     required this.title,
     this.textColor = Colors.white,
     this.fontSize,
+    this.width = 1,
     required this.onPressed,
     this.fillColor = Colors.white,
     this.hasFillBoarder = true,
@@ -22,6 +23,7 @@ class DesignButton extends StatelessWidget {
   final String title;
   final Color textColor;
   final double? fontSize;
+  final double width;
   final void Function() onPressed;
   final Color fillColor;
   final bool hasFillBoarder;
@@ -33,7 +35,7 @@ class DesignButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         height: screenHeight(context) * 0.065,
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width * width,
         decoration: BoxDecoration(
           color: hasFillBoarder ? fillColor : Colors.transparent,
           borderRadius: BorderRadius.circular(kButtonBorderRadius),

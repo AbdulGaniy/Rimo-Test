@@ -82,7 +82,9 @@ class _LoginScreenState extends State<LoginScreen> {
              validator: (_) {},
              hintText: 'Password'),
             YMargin(MediaQuery.of(context).size.height * 0.03),
-            DesignButton(title: "Login", onPressed: () {}, fillColor: kCuriousBlue,),
+            DesignButton(title: "Login", onPressed: () {
+              Navigator.pushNamed(context, kDashboard);
+            }, fillColor: kCuriousBlue,),
             YMargin(MediaQuery.of(context).size.height * 0.03),
             Center(
               child: GestureDetector(
