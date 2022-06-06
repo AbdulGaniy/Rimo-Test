@@ -19,12 +19,8 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final formKey = GlobalKey<FormState>();
-
-
-
-
-
+  // final formKey = GlobalKey<FormState>();
+  //
 
   late TextEditingController _fullNameController;
   late TextEditingController _emailController;
@@ -82,11 +78,10 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
 
     return Form(
-      key: formKey,
       child: GestureDetector(
-        onVerticalDragCancel: () {
-           Navigator.push(context, MaterialPageRoute(builder: (context)=> NextOfKin()));
-        },
+        // onVerticalDragCancel: () {
+        //    Navigator.push(context, MaterialPageRoute(builder: (context)=> NextOfKin()));
+        // },
         child: DesignScaffold(
          body: Column(
            crossAxisAlignment: CrossAxisAlignment.start,

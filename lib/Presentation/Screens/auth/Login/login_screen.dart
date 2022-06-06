@@ -7,8 +7,11 @@ import 'package:rimotest/Presentation/Widgets/design_scaffold.dart';
 import 'package:rimotest/Presentation/Widgets/phone_number_picker.dart';
 import 'package:rimotest/router/route_link.dart';
 import 'package:rimotest/utils/app_colors.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:rimotest/utils/app_images.dart';
+import 'package:http/http.dart' as http;
 import 'package:rimotest/utils/app_svgs.dart';
+import 'package:flutter/services.dart';
 
 import '../../../../utils/margin.dart';
 
@@ -83,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
              hintText: 'Password'),
             YMargin(MediaQuery.of(context).size.height * 0.03),
             DesignButton(title: "Login", onPressed: () {
-              Navigator.pushNamed(context, kDashboard);
+              login();
             }, fillColor: kCuriousBlue,),
             YMargin(MediaQuery.of(context).size.height * 0.03),
             Center(
@@ -106,4 +109,45 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ));
   }
+  Future<void> login() async{
+    if(_phoneNumberController.text.isNotEmpty && _passwordController.text.isNotEmpty){
+      var response = await http.post(Uri.parse("http://handova.ddns.net:9000/api/login"), body: ({
+        'username': _phoneNumberController.text,
+        'password': _passwordController.text,
+      }));
+      if(response.statusCode == 200){
+        Navigator.pushNamed(context, kDashboard);
+      }else{
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Invalid Credentials")));
+      }
+    } else{
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Blank Field not allowed")));
+    }
+  }
 }
+// class LocalAuthApi{
+//   static final _auth = LocalAuthentication();
+//
+//   static bool hasBiometrics() aasync {
+//    try{
+//   return await _auth.canCheckBiometrics;
+//   }on PlatformException catch (e){
+//      return false;
+//   }
+//   }
+//
+//   static Future<bool> authenticate() async{
+//     final isAvailable = await hasBiometrics();
+//     if(!isAvailable) return false;
+//     try{
+//       return await _auth.authenticateWithBiometrics(
+//         localizedReason: 'Scan FingerPrint to Authenticate',
+//         useErrorDialogs: true,
+//         stickyAuth: true,
+//       );
+//     }
+//
+//   }
+// }
